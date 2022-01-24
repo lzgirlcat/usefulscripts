@@ -1,0 +1,13 @@
+#!/usr/bin/python
+# decodes a base64 string, tries to detect the encoding
+import base64
+from sys import argv
+import chardet
+
+def detect_(byte_str):
+    return chardet.detect(byte_str)['encoding']
+
+for num, i in enumerate(argv[1::]):
+    decoded = base64.b64decode(i)
+    encoding = detect_(decoded)
+    print(f"{num}:{encoding}: ' {decoded.decode(encoding)} '")

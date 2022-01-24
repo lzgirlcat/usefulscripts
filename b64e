@@ -1,0 +1,7 @@
+#!/usr/bin/python
+# encodes a string to base64
+import base64
+from sys import argv
+
+for num, i in enumerate(argv[1::]):
+    print(f"{num}: {base64.b64encode(i.encode()).decode()}")
