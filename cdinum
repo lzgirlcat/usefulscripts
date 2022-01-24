@@ -1,0 +1,7 @@
+#!/usr/bin/python
+# Outputs 1 if the currently focused container is on the "first" monitor and 2 if on the "second" one
+import i3ipc
+
+i3 = i3ipc.Connection()
+focused = i3.get_tree().find_focused()
+print(1 if 'HDMI' in focused.ipc_data['output'] else 2)
